@@ -7,7 +7,6 @@ const resetBtn = document.getElementById("reset-btn");
 const appearEle = document.getElementById("appear");
 
 //create imgEle
-
 let createImgEle = () => {
   let imgEle = document.createElement("img");
   imgEle.src = "./img/lion.png";
@@ -15,12 +14,6 @@ let createImgEle = () => {
   imgEle.height = 100;
   let appendAppearEle = appearEle.appendChild(imgEle);
 };
-
-// let imgEle = document.createElement("img");
-// imgEle.src = "./img/lion.png";
-// imgEle.width = 100;
-// imgEle.height = 100;
-// let appendAppearEle = appearEle.appendChild(imgEle);
 
 //set start time
 let elapsedTime = 0;
@@ -37,7 +30,15 @@ startBtn.addEventListener("click", () => {
     //random img
     let imgEle = document.createElement("img");
     let imgNum = Math.floor(Math.random() * 3);
-    //   let imgNum = Math.floor(Math.random() * 2 + 2);
+
+    //create random
+    let randomTop = Math.floor(Math.random() * 500 + 200);
+    let randomLeft = Math.floor(Math.random() * 500);
+
+    imgEle.style.position = "absolute";
+    imgEle.style.top = `${randomTop}px`;
+    imgEle.style.left = `${randomLeft}px`;
+
     imgEle.src = `./img/${imgNum}.png`;
     console.log(imgNum);
     imgEle.width = 50;
@@ -52,5 +53,5 @@ startBtn.addEventListener("click", () => {
     resetBtn.addEventListener("click", () => {
       location.reload();
     });
-  }, 1000);
+  }, 500);
 });
